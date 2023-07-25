@@ -9,9 +9,14 @@ export const cartReducer = createSlice({
     add: (state, action) => {
       state.value.push(action.payload);
     },
+    remove: (state, action) => {
+      state.value = state.value.filter(
+        (product) => product.SKU !== action.payload.SKU
+      );
+    },
   },
 });
 
-export const { add } = cartReducer.actions;
+export const { add, remove } = cartReducer.actions;
 
 export default cartReducer.reducer;

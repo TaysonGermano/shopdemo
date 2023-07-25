@@ -2,13 +2,16 @@ import React from "react";
 import { Stack, Box, Typography } from "@mui/material";
 import { Button } from "./custom/Button";
 import { useDispatch } from "react-redux";
-import { add } from "../redux/reducers/cart";
+import { add, remove } from "../redux/reducers/cart";
 
 export default function Product(props) {
   const dispatch = useDispatch();
 
   // add to cart
   const addToCart = () => dispatch(add(props));
+
+  // remove from cart
+  const removeFromCart = () => dispatch(remove(props));
 
   return (
     <Box textAlign="left">
@@ -24,7 +27,10 @@ export default function Product(props) {
             <b>Expires At:</b> {props.expireDate}
           </Typography>
         </Stack>
-        <Button onClick={addToCart}>Add to cart</Button>
+        {props.showAddBtn && <Button onClick={addToCart}>Add to cart</Button>}
+        {props.showRmvBtn && (
+          <Button onClick={removeFromCart}>Remove from cart</Button>
+        )}
       </Stack>
     </Box>
   );

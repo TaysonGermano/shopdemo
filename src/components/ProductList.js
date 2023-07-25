@@ -13,7 +13,7 @@ export default function ProductList() {
       }}
     >
       {products.map((product, index) => (
-        <Product key={index} {...product} />
+        <Product key={index} {...product} showAddBtn />
       ))}
     </Stack>
   );

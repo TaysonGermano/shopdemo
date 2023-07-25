@@ -15,7 +15,7 @@ export default function Cart() {
       }}
     >
       {cart.map((product, index) => (
-        <Product key={index} {...product} />
+        <Product key={index} {...product} showRmvBtn showAddBtn={false} />
       ))}
     </Stack>
   );
